@@ -104,6 +104,7 @@ PLATFORM_FROM_NAME = {
     PLATFORM_MACOS: PLATFORM_MACOS,
     'osx': PLATFORM_MACOS,
     'darwin': PLATFORM_MACOS,
+    # add m-chip support
     'Darwin-arm64': PLATFORM_MACOS,
     'Darwin-x86_64': PLATFORM_MACOS,
     # Linux

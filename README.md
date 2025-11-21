@@ -172,3 +172,46 @@ git pull
 ```
 
 The ``git pull`` command is fetching and merging changes from ESP8266_RTOS_SDK repository on GitHub.
+
+
+
+
+
+
+
+
+
+Basic install usage:
+
+1、./install.sh to install environment
+
+brew install ncurses
+
+which used to open esp menuconfig
+
+2、source the e envrioment
+
+~~~bash
+function add-esptool
+    set -gx IDF_PATH /Users/yisen/esp/ESP8266_RTOS_SDK
+    if not test -d $IDF_PATH
+        echo "ESP-IDF path does not exist: $IDF_PATH"
+        return 1
+    end
+
+    if not test -f $IDF_PATH/export.sh
+        echo "export.sh not found in ESP-IDF path: $IDF_PATH"
+        return 1
+    end
+    set -x PKG_CONFIG_PATH /opt/homebrew/opt/ncurses/lib/pkgconfig $PKG_CONFIG_PATH
+    set -x CFLAGS -I/opt/homebrew/opt/ncurses/include $CFLAGS
+    set -x LDFLAGS -L/opt/homebrew/opt/ncurses/lib $LDFLAGS
+    bass source $IDF_PATH/export.sh
+end
+~~~
+
+3、build project
+
+make build
+
+make flash
